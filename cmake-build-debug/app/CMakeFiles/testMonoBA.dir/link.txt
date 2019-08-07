@@ -1,1 +1,1 @@
-/usr/bin/c++  -std=c++11 -g -Wall -fopenmp -std=c++11 -g -Wall -fopenmp -Wno-reorder    -rdynamic CMakeFiles/testMonoBA.dir/TestMonoBA.cpp.o  -o testMonoBA ../backend/libslam_course_backend.a 
+/usr/bin/c++   -std=c++11 -g -Wall -fopenmp -std=c++11 -g -Wall -fopenmp -Wno-reorder    CMakeFiles/testMonoBA.dir/TestMonoBA.cpp.o  -o testMonoBA -rdynamic ../backend/libslam_course_backend.a 

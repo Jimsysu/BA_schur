@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/utopa/Documents/VIO_Lesson/CH6/BA_schur/BA_schur/frontend/frame.cc" "/home/utopa/Documents/VIO_Lesson/CH6/BA_schur/BA_schur/cmake-build-debug/frontend/CMakeFiles/slam_course_frontend.dir/frame.cc.o"
+  "/home/long/SlamBooks/VIO_course/CH6/BA_schur_long/BA_schur/frontend/frame.cc" "/home/long/SlamBooks/VIO_course/CH6/BA_schur_long/BA_schur/cmake-build-debug/frontend/CMakeFiles/slam_course_frontend.dir/frame.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

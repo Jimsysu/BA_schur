@@ -15,3 +15,8 @@ cmake ..
 make -j4    
 ```
 
+### 开发记录
+```apple js
+1. ubuntu 16.04
+
+```

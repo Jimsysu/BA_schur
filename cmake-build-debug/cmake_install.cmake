@@ -1,4 +1,4 @@
-# Install script for directory: /home/utopa/Documents/VIO_Lesson/CH6/BA_schur/BA_schur
+# Install script for directory: /home/long/SlamBooks/VIO_course/CH6/BA_schur_long/BA_schur
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -32,17 +32,12 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
   set(CMAKE_INSTALL_SO_NO_EXE "1")
 endif()
 
-# Is this installation the result of a crosscompile?
-if(NOT DEFINED CMAKE_CROSSCOMPILING)
-  set(CMAKE_CROSSCOMPILING "FALSE")
-endif()
-
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/utopa/Documents/VIO_Lesson/CH6/BA_schur/BA_schur/cmake-build-debug/frontend/cmake_install.cmake")
-  include("/home/utopa/Documents/VIO_Lesson/CH6/BA_schur/BA_schur/cmake-build-debug/backend/cmake_install.cmake")
-  include("/home/utopa/Documents/VIO_Lesson/CH6/BA_schur/BA_schur/cmake-build-debug/utils/cmake_install.cmake")
-  include("/home/utopa/Documents/VIO_Lesson/CH6/BA_schur/BA_schur/cmake-build-debug/app/cmake_install.cmake")
+  include("/home/long/SlamBooks/VIO_course/CH6/BA_schur_long/BA_schur/cmake-build-debug/frontend/cmake_install.cmake")
+  include("/home/long/SlamBooks/VIO_course/CH6/BA_schur_long/BA_schur/cmake-build-debug/backend/cmake_install.cmake")
+  include("/home/long/SlamBooks/VIO_course/CH6/BA_schur_long/BA_schur/cmake-build-debug/utils/cmake_install.cmake")
+  include("/home/long/SlamBooks/VIO_course/CH6/BA_schur_long/BA_schur/cmake-build-debug/app/cmake_install.cmake")
 
 endif()
 
@@ -54,5 +49,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/utopa/Documents/VIO_Lesson/CH6/BA_schur/BA_schur/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/long/SlamBooks/VIO_course/CH6/BA_schur_long/BA_schur/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
