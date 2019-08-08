@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/long/SlamBooks/VIO_course/CH6/BA_schur_long/BA_schur/app/CurveFitting.cpp" "/home/long/SlamBooks/VIO_course/CH6/BA_schur_long/BA_schur/cmake-build-debug/app/CMakeFiles/testCurveFitting.dir/CurveFitting.cpp.o"
+  "/home/utopa/Documents/VIO_Lesson/CH6/code/BA_schur/app/CurveFitting.cpp" "/home/utopa/Documents/VIO_Lesson/CH6/code/BA_schur/cmake-build-debug/app/CMakeFiles/testCurveFitting.dir/CurveFitting.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -24,7 +24,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/long/SlamBooks/VIO_course/CH6/BA_schur_long/BA_schur/cmake-build-debug/backend/CMakeFiles/slam_course_backend.dir/DependInfo.cmake"
+  "/home/utopa/Documents/VIO_Lesson/CH6/code/BA_schur/cmake-build-debug/backend/CMakeFiles/slam_course_backend.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

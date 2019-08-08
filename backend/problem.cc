@@ -284,13 +284,14 @@ void Problem::MakeHessian() {
     MatXX H(MatXX::Zero(size, size));
     VecX b(VecX::Zero(size));
 
-    for (auto &edge: edges_) {
+    // 遍历每个残差，并计算他们的雅克比，得到最后的 H = J^T * J
+    for (auto &edge: edges_) {  //遍历所有的残差，
 
-        edge.second->ComputeResidual();
-        edge.second->ComputeJacobians();
+        edge.second->ComputeResidual();   //计算残差
+        edge.second->ComputeJacobians();  //计算雅克比
 
         auto jacobians = edge.second->Jacobians();
-        auto verticies = edge.second->Verticies();
+        auto verticies = edge.second->Verticies();   // 顶点， pose和逆深度
         assert(jacobians.size() == verticies.size());
         for (size_t i = 0; i < verticies.size(); ++i) {
             auto v_i = verticies[i];
@@ -311,14 +312,16 @@ void Problem::MakeHessian() {
                 ulong dim_j = v_j->LocalDimension();
 
                 assert(v_j->OrderingId() != -1);
-                MatXX hessian = JtW * jacobian_j;
+                MatXX hessian = JtW * jacobian_j;  //J^T*J
                 // 所有的信息矩阵叠加起来
                 // TODO:: home work. 完成 H index 的填写.
                 // H.block(?,?, ?, ?).noalias() += hessian;
+                H.block(index_i, index_j, dim_i, dim_j).noalias() += hessian;
                 if (j != i) {
                     // 对称的下三角
 		    // TODO:: home work. 完成 H index 的填写.
                     // H.block(?,?, ?, ?).noalias() += hessian.transpose();
+                    H.block(index_j, index_i, dim_j, dim_i).noalias() += hessian.transpose();
                 }
             }
             b.segment(index_i, dim_i).noalias() -= JtW * edge.second->Residual();

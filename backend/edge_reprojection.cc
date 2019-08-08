@@ -17,18 +17,19 @@ namespace backend {
     VecX observation_;              // 观测信息
     */
 
+//整个过程参考第三节的公式 23
 void EdgeReprojection::ComputeResidual() {
-    double inv_dep_i = verticies_[0]->Parameters()[0]; //
+    double inv_dep_i = verticies_[0]->Parameters()[0]; // 逆深度, Parameters()返回的三维的变量，取 0 处
 
-    VecX param_i = verticies_[1]->Parameters();
-    Qd Qi(param_i[6], param_i[3], param_i[4], param_i[5]);
-    Vec3 Pi = param_i.head<3>();
+    VecX param_i = verticies_[1]->Parameters();    // 0,1,2是 twc, 3,4,5,6 x,y,z,w
+    Qd Qi(param_i[6], param_i[3], param_i[4], param_i[5]);  //
+    Vec3 Pi = param_i.head<3>();   //param_i 头三个点 twc
 
     VecX param_j = verticies_[2]->Parameters();
     Qd Qj(param_j[6], param_j[3], param_j[4], param_j[5]);
     Vec3 Pj = param_j.head<3>();
 
-    Vec3 pts_camera_i = pts_i_ / inv_dep_i;
+    Vec3 pts_camera_i = pts_i_ / inv_dep_i;  // 观测值 * 逆深度
     Vec3 pts_imu_i = qic * pts_camera_i + tic;
     Vec3 pts_w = Qi * pts_imu_i + Pi;
     Vec3 pts_imu_j = Qj.inverse() * (pts_w - Pj);
@@ -44,6 +45,7 @@ void EdgeReprojection::SetTranslationImuFromCamera(Eigen::Quaterniond &qic_, Vec
     tic = tic_;
 }
 
+//整个过程参考第三节的公式 62
 void EdgeReprojection::ComputeJacobians() {
     double inv_dep_i = verticies_[0]->Parameters()[0];
 
@@ -66,7 +68,7 @@ void EdgeReprojection::ComputeJacobians() {
     Mat33 Ri = Qi.toRotationMatrix();
     Mat33 Rj = Qj.toRotationMatrix();
     Mat33 ric = qic.toRotationMatrix();
-    Mat23 reduce(2, 3);
+    Mat23 reduce(2, 3);  //残差是二维的像素差，对3维的投影点  所有是6唯的
     reduce << 1. / dep_j, 0, -pts_camera_j(0) / (dep_j * dep_j),
         0, 1. / dep_j, -pts_camera_j(1) / (dep_j * dep_j);
 //    reduce = information_ * reduce;

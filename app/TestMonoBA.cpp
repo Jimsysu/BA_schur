@@ -107,15 +107,15 @@ int main() {
         problem.AddVertex(verterxPoint);
         allPoints.push_back(verterxPoint);
 
-        // 每个特征对应的投影误差, 第 0 帧为起始帧
+        // 每个特征对应的投影误差, 第 0 帧为起始帧, 为什么不是0到1,1到2，相邻的两帧，现在是0和1，然后0和2 ？
         for (size_t j = 1; j < cameras.size(); ++j) {
             Eigen::Vector3d pt_i = cameras[0].featurePerId.find(i)->second;
             Eigen::Vector3d pt_j = cameras[j].featurePerId.find(i)->second;
-            shared_ptr<EdgeReprojection> edge(new EdgeReprojection(pt_i, pt_j));
+            shared_ptr<EdgeReprojection> edge(new EdgeReprojection(pt_i, pt_j));  // 相机观测到的特征点存起来，用来计算投影误差
             edge->SetTranslationImuFromCamera(qic, tic);
 
             std::vector<std::shared_ptr<Vertex> > edge_vertex;
-            edge_vertex.push_back(verterxPoint);
+            edge_vertex.push_back(verterxPoint);    // verterxPoint 逆深度，参数1
             edge_vertex.push_back(vertexCams_vec[0]);
             edge_vertex.push_back(vertexCams_vec[j]);
             edge->SetVertex(edge_vertex);
