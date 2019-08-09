@@ -37,5 +37,5 @@ make -j4
 
 | problem  | problem|vertexCams_vec|allPoints|verticies_|
 |---|---|---|---|---|
-|AddVertex : pose 和逆深度|AddEdge: pose和逆深度|pose的7个量|逆深度|顶点数|
+|AddVertex : pose 和逆深度|AddEdge: pose和逆深度|pose的7个量|逆深度|顶点数:size 23 前面3个6维的pose 后面20个是1维的逆深度|
 |顶点：优化的变量 pose和观测值Pc|边：重投影误差项|四元素和平移量|Pc的倒数|所有的观测：逆深度和相机pose|
